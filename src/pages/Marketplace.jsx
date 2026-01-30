@@ -6,7 +6,7 @@ const Marketplace = ({ addToCart, products, setProducts, user }) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [editingItem, setEditingItem] = useState(null);
 
-  // --- 1. CHECK POWER PERMISSIONS ---
+  // --- PERMISSIONS ---
   const isPowerUser = user && (user.role === 'Manager' || user.role === 'Administrator');
 
   // --- 2. CRUD ACTIONS ---
@@ -18,7 +18,7 @@ const Marketplace = ({ addToCart, products, setProducts, user }) => {
     }
   };
 
-  // SAVE (Create or Update)
+  // Create or Update
   const handleSave = (e) => {
     e.preventDefault();
     const formData = new FormData(e.target);
@@ -67,7 +67,7 @@ const Marketplace = ({ addToCart, products, setProducts, user }) => {
           Buy high-quality seeds, fertilizers, and plants directly from certified government suppliers.
         </p>
 
-        {/* 🔴 POWER USER BUTTON: Add New Item */}
+        {/* Add New product */}
         {isPowerUser && (
             <button 
                 onClick={openAddModal}
@@ -78,7 +78,7 @@ const Marketplace = ({ addToCart, products, setProducts, user }) => {
         )}
       </div>
 
-      {/* CATEGORY TABS */}
+      {/* category tabs */}
       <div className="container relative z-10 px-4 mx-auto mb-12 -mt-8">
         <div className="flex flex-wrap justify-center gap-4 p-4 bg-white shadow-lg rounded-xl">
           {['all', 'seeds', 'fertilizer', 'plants'].map((cat) => (
@@ -96,13 +96,13 @@ const Marketplace = ({ addToCart, products, setProducts, user }) => {
         </div>
       </div>
 
-      {/* PRODUCT GRID */}
+      {/* Product Grid */}
       <div className="container px-4 mx-auto">
         <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3">
             {filteredProducts.map((product) => (
                 <div key={product.id} className="relative overflow-hidden transition-all duration-300 bg-white border border-gray-100 shadow-sm group rounded-2xl hover:shadow-xl">
                     
-                    {/* 🔴 POWER USER CONTROLS (Edit/Delete) */}
+                    {/* User Controls */}
                     {isPowerUser && (
                         <div className="absolute z-20 flex gap-2 transition-opacity opacity-0 top-3 right-3 group-hover:opacity-100">
                             <button 
@@ -155,7 +155,7 @@ const Marketplace = ({ addToCart, products, setProducts, user }) => {
         </div>
       </div>
 
-      {/* 🔴 MODAL: ADD / EDIT PRODUCT */}
+      {/* Adding - Editing Products*/}
       {isModalOpen && (
         <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black bg-opacity-50 backdrop-blur-sm">
             <div className="w-full max-w-md overflow-hidden bg-white shadow-2xl rounded-2xl animate-fade-in-up">

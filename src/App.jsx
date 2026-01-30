@@ -32,8 +32,8 @@ const App = () => {
   const [user, setUser] = useState(null);
   const [cartItems, setCartItems] = useState([]);
 
-  // --- 1. NEW: SHARED MARKETPLACE PRODUCTS ---
-  // We keep the products here so we can Add/Delete them permanently
+  
+  // We keep the MARKETPLACE PRODUCTS here so we can Add/Delete them permanently
   const [products, setProducts] = useState([
     { id: 1, name: "Bg 352 (Red Rice) Seeds", type: "seeds", price: "Rs. 450", image: "https://images.unsplash.com/photo-1586201375761-83865001e31c?auto=format&fit=crop&q=80&w=800", desc: "High-yield red rice seeds." },
     { id: 2, name: "Organic Chili Seeds", type: "seeds", price: "Rs. 150", image: "https://images.unsplash.com/photo-1588252303782-cb80119abd6d?auto=format&fit=crop&q=80&w=800", desc: "Spicy Sri Lankan chili." },
@@ -74,14 +74,13 @@ const App = () => {
           <Route path="/login" element={<Login setUser={setUser} />} />
           <Route path="/privacy" element={<PrivacyPolicy />} />
           <Route path="/terms" element={<TermsOfService />} />
-          {/* 🆕 THE 4 NEW ROUTES */}
           <Route path="/modern-farming" element={<LearnMorePage topic="modern-farming" />} />
           <Route path="/supply-chain" element={<LearnMorePage topic="supply-chain" />} />
           <Route path="/export-quality" element={<LearnMorePage topic="export-quality" />} />
           <Route path="/agri-tech" element={<LearnMorePage topic="agri-tech" />} />
 
-          {/* 🔴 2. UPDATE MARKETPLACE ROUTE */}
-          {/* We pass 'products', 'setProducts', and 'user' so we can do Admin stuff */}
+          
+          {/* MARKETPLACE ROUTE */}
           <Route path="/marketplace" element={
             <Marketplace
               addToCart={addToCart}

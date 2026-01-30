@@ -1,5 +1,8 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link } from 'react-router-dom'
+import Nextgen from '../assets/nextgen.avif';
+import Stock from '../assets/stock.avif';
+import Export from '../assets/export.avif';
 
 const LearnMorePage = ({ topic }) => {
   
@@ -18,7 +21,7 @@ const LearnMorePage = ({ topic }) => {
     },
     'supply-chain': {
       title: "Transparent Supply Chain",
-      image: "https://images.unsplash.com/photo-1542838132-92c53300491e?auto=format&fit=crop&q=80&w=1920",
+      image: Stock,
       intro: "Our blockchain-enabled supply chain ensures that every rupee you spend goes directly to the hardworking farmer.",
       points: [
         "Middleman Elimination: Direct Farmer-to-Consumer platform.",
@@ -29,7 +32,7 @@ const LearnMorePage = ({ topic }) => {
     },
     'export-quality': {
       title: "Export Quality Standards",
-      image: "https://images.unsplash.com/photo-1610348725531-843dff563e2c?auto=format&fit=crop&q=80&w=1920",
+      image: Export,
       intro: "We bring international quality standards to the local market. Only the best produce makes it to your table.",
       points: [
         "GAP Certified: Good Agricultural Practices certification.",
@@ -40,7 +43,7 @@ const LearnMorePage = ({ topic }) => {
     },
     'agri-tech': {
       title: "Next-Gen Agri-Tech",
-      image: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&q=80&w=1920",
+      image: Nextgen,
       intro: "Leveraging AI and IoT to revolutionize how Sri Lanka farms, predicts weather, and manages inventory.",
       points: [
         "AI Pest Detection: Identifying diseases before they spread.",

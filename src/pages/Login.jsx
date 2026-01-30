@@ -1,12 +1,12 @@
 import React, { useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom';
-import lgImage from '../assets/lg.avif'; // Make sure this path is correct for your project
+import lgImage from '../assets/lg.avif'; 
 
-// Accept 'setUser' prop to update the App state
+
 const Login = ({ setUser }) => {
   const [isLogin, setLogin] = useState(true);
 
-  // Form State
+  
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [fullName, setFullName] = useState(''); 
@@ -17,27 +17,26 @@ const Login = ({ setUser }) => {
   const handleAuth = (e) => {
     e.preventDefault();
 
-    // --- LOGIC FOR CREATING AN ACCOUNT (SIGN UP) ---
+    // --- Sign Up ---
     if (!isLogin) {
-      // Create the new user object with the inputs
+      // Create the new user 
       const newUser = {
-        name: fullName || username || "New User", // Use Full Name, fallback to Username
-        username: username,                       // Store the username
+        name: fullName || username || "New User", 
+        username: username,                       
         role: "Public User",
         email: email
       };
 
-      // Update App State
+      
       setUser(newUser);
 
-      // Redirect to Home
+      // Redirect to home page
       console.log("Account Created:", newUser);
       navigate('/');
       return; 
     }
 
-    // --- LOGIC FOR LOGGING IN (SIGN IN) ---
-    // (Existing simulated logic)
+    // --- Login ---
     if (email.includes('admin')) {
       setUser({ name: "Super Admin", username: "admin", role: "Administrator", email: email });
       navigate('/admin-dashboard');
@@ -47,7 +46,6 @@ const Login = ({ setUser }) => {
       navigate('/dashboard');
 
     } else {
-      // For standard login, we simulate fetching the user data
       setUser({ name: "Public User", username: "user", role: "Public User", email: email });
       navigate('/');
     }
@@ -70,11 +68,11 @@ const Login = ({ setUser }) => {
 
           <form className='mt-8 space-y-6' onSubmit={handleAuth}>
 
-            {/* --- SIGN UP FIELDS --- */}
+            {/* --- Sign up fields --- */}
             {!isLogin && (
               <div className='space-y-4 animate-fade-in-down'>
                 
-                {/* 2. NEW: Username Input */}
+                {/* Username input */}
                 <div>
                   <label className='block mb-1 text-sm font-medium text-gray-700'>Username</label>
                   <input
@@ -86,7 +84,7 @@ const Login = ({ setUser }) => {
                   />
                 </div>
 
-                {/* Existing Full Name Input */}
+                {/* Existing Full Name Inpuut*/}
                 <div>
                   <label className='block mb-1 text-sm font-medium text-gray-700'>Full Name</label>
                   <input
@@ -100,7 +98,7 @@ const Login = ({ setUser }) => {
               </div>
             )}
 
-            {/* --- COMMON FIELDS (Email & Password) --- */}
+            {/* --- Email & Password --- */}
             <div>
               <label className='block mb-1 text-sm font-medium text-gray-700'>Email Address</label>
               <input
@@ -137,7 +135,7 @@ const Login = ({ setUser }) => {
             </button>
           </form>
 
-          {/* Toggle between Login and Sign Up */}
+          {/* Toggle Login and Sign Up */}
           <div className='mt-6 text-center'>
             <p className='text-gray-600'>
               {isLogin ? "Don't have an account?" : "Already have an account?"}
